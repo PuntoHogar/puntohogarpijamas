@@ -1,0 +1,7 @@
+# Punto Hogar Pijamas — rastreo abierto para buscadores
+# Al mover al dominio oficial: actualizar la linea Sitemap.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://PuntoHogar.github.io/puntohogarpijamas/sitemap.xml

@@ -1,0 +1,36 @@
+# Sincronizacion automatica del catalogo de Punto Hogar Pijamas
+# (no hay proveedores externos; el catalogo se edita manualmente en catalogo.js)
+#
+# Requisito (una sola vez): Settings > Actions > General > Workflow permissions
+# debe estar en "Read and write permissions" para que el bot pueda hacer push.
+name: Verificar catalogo
+
+on:
+  workflow_dispatch: # permite ejecutarlo a mano desde la pestana Actions
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verificar catalogo.js
+        run: |
+          node -e "
+          const fs = require('fs');
+          const catalogo = JSON.parse(fs.readFileSync('catalogo.js').toString().match(/\\[.*\\]/s)[0]);
+          console.log('Productos:', catalogo.length);
+          console.log('Categorias:', [...new Set(catalogo.map(p => p.cat))].join(', '));
+          if (catalogo.length === 0) {
+            console.error('ERROR: Catalogo vacio');
+            process.exit(1);
+          }
+          console.log('OK: Catalogo valido');
+          "
