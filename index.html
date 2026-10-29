@@ -17,10 +17,10 @@
      GitHub Pages redirige 301 automaticamente el github.io al dominio nuevo. -->
 <link rel="canonical" href="https://PuntoHogar.github.io/puntohogarpijamas/">
 <meta name="theme-color" content="#27313B">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -2317,8 +2317,8 @@ async function crearTarjetaCompartir(){
     if(logo.width)cx.drawImage(logo,390,70,300,300);
     cx.fillStyle="#27313B";
     cx.font="800 47px Montserrat, Arial, sans-serif";
-    cx.fillText("Todo lo que te hace feliz,",540,455);
-    cx.fillText("en un solo lugar",540,512);
+    cx.fillText("Descansa cómodo,",540,455);
+    cx.fillText("siéntete en casa",540,512);
     cx.fillStyle="#7D858D";cx.font="500 29px Poppins, Arial, sans-serif";
     cx.fillText(cortarTexto(cx,catsVisiblesTexto(4),980),540,568);
     cx.fillStyle="#A6C83A";cx.fillRect(440,600,200,5);
@@ -2593,10 +2593,10 @@ function aplicarIdentidad(){
   /* El texto junto al logo es el ESLOGAN (el logo ya dice IKI: repetirlo
      era redundante); el nombre configurable sigue en el titulo, el footer
      y los saludos de WhatsApp. */
-  $("brandTxt").textContent="Todo lo que te hace feliz, en un solo lugar";
+  $("brandTxt").textContent="by Fredy Henao · Descansa cómodo, siéntete en casa";
   const limg=document.querySelector(".brand img");
   if(limg){limg.src=TIENDA.logo||TIENDA_DEFECTO.logo;limg.onerror=function(){limg.style.display="none";};limg.style.display="";}
-  document.title=nombre+" — Todo lo que te hace feliz, en un solo lugar";
+  document.title=nombre+" — Descansa cómodo, siéntete en casa";
   const waPed=TIENDA.whatsappPedidos||TIENDA_DEFECTO.whatsappPedidos;
   const waAte=TIENDA.whatsappAtencion||waPed;
   /* Mensajes de CONTACTO (no pedidos): contextual por punto de entrada y
