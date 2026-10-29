@@ -2,7 +2,7 @@
 // (botón "Publicar para TODOS"). Se aplica a TODOS los visitantes de
 // https://PuntoHogar.github.io/puntohogarpijamas/ — nadie necesita editar este archivo a mano.
 window.CONFIG_PUBLICADA = {
-  "version": 1793390000000,
+  "version": 1793300000123,
   "tienda": {
     "nombre": "Punto Hogar Pijamas",
     "logo": "Logo circular de pijamas Punto Hogar.png",
@@ -16,8 +16,8 @@ window.CONFIG_PUBLICADA = {
     "tiktok": "",
     "pixelMeta": "",
     "ga4": "",
-    "heroIds": "pj02,pj07,nv01,pj10,cj04,en02",
-    "favoritos": "pj01,pj03,pj05,pj13,cj01,pt02,sh02,in02",
+    "heroIds": "m86,m59,m80,m81,m82,m16",
+    "favoritos": "m86,m59,m80,m81,m84,m03,m06,m08,m11,m15,m16,m18,m21,m23,m29,m44,m47,m61,m66",
     "pagoContraEntrega": true,
     "vaciarCarrito": true,
     "categoriasOcultas": "",
@@ -27,17 +27,17 @@ window.CONFIG_PUBLICADA = {
     "catalogosOcultos": ""
   },
   "precios": {
-    "margenGlobal": 0.30,
+    "margenGlobal": 0.25,
     "multiplicadorBase": 1,
     "redondeo": 1000,
     "margenesPorCategoria": {
-      "pijamas": 0.50,
-      "conjuntos": 0.50,
-      "pantalones": 0.50,
-      "shorts": 0.50,
-      "interior": 0.50,
-      "enterizos": 0.50,
-      "ninos": 0.50,
+      "pijamas": 0.60,
+      "conjuntos": 0.60,
+      "pantalones": 0.60,
+      "shorts": 0.60,
+      "interior": 0.60,
+      "enterizos": 0.60,
+      "ninos": 0.60,
       "navidad": 0.50,
       "juguetes": 0.40,
       "escolar": 0.40,
