@@ -2,7 +2,7 @@
 // (botón "Publicar para TODOS"). Se aplica a TODOS los visitantes de
 // https://PuntoHogar.github.io/puntohogarpijamas/ — nadie necesita editar este archivo a mano.
 window.CONFIG_PUBLICADA = {
-  "version": 1793208108763,
+  "version": 1793390000000,
   "tienda": {
     "nombre": "Punto Hogar Pijamas",
     "logo": "Logo circular de pijamas Punto Hogar.png",
@@ -16,8 +16,8 @@ window.CONFIG_PUBLICADA = {
     "tiktok": "",
     "pixelMeta": "",
     "ga4": "",
-    "heroIds": "",
-    "favoritos": "",
+    "heroIds": "pj02,pj07,nv01,pj10,cj04,en02",
+    "favoritos": "pj01,pj03,pj05,pj13,cj01,pt02,sh02,in02",
     "pagoContraEntrega": true,
     "vaciarCarrito": true,
     "categoriasOcultas": "",
