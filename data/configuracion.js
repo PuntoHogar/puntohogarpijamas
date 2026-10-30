@@ -2,7 +2,7 @@
 // (botón "Publicar para TODOS"). Se aplica a TODOS los visitantes de
 // https://PuntoHogar.github.io/puntohogarpijamas/ — nadie necesita editar este archivo a mano.
 window.CONFIG_PUBLICADA = {
-  "version": 1793367981716,
+  "version": 1793372115381,
   "tienda": {
     "nombre": "Punto Hogar Pijamas",
     "logo": "Logo circular de pijamas Punto Hogar.png",
