@@ -2,12 +2,12 @@
 // (botón "Publicar para TODOS"). Se aplica a TODOS los visitantes de
 // https://PuntoHogar.github.io/puntohogarpijamas/ — nadie necesita editar este archivo a mano.
 window.CONFIG_PUBLICADA = {
-  "version": 1793300000123,
+  "version": 1793367981716,
   "tienda": {
     "nombre": "Punto Hogar Pijamas",
     "logo": "Logo circular de pijamas Punto Hogar.png",
-    "whatsappPedidos": "573147247260",
-    "whatsappAtencion": "573147247260",
+    "whatsappPedidos": "573137203136",
+    "whatsappAtencion": "573137203136",
     "razonSocial": "Punto Hogar Pijamas by Fredy Henao",
     "nit": "",
     "direccion": "",
@@ -31,19 +31,14 @@ window.CONFIG_PUBLICADA = {
     "multiplicadorBase": 1,
     "redondeo": 1000,
     "margenesPorCategoria": {
-      "pijamas": 0.60,
-      "conjuntos": 0.60,
-      "pantalones": 0.60,
-      "shorts": 0.60,
-      "interior": 0.60,
-      "enterizos": 0.60,
-      "ninos": 0.60,
-      "navidad": 0.50,
-      "juguetes": 0.40,
-      "escolar": 0.40,
-      "bebe": 0.25,
-      "regalos": 0.30,
-      "urbana": 0.20
+      "pijamas": 0.6,
+      "conjuntos": 0.6,
+      "pantalones": 0.6,
+      "shorts": 0.6,
+      "interior": 0.6,
+      "enterizos": 0.6,
+      "ninos": 0.6,
+      "navidad": 0.5
     },
     "temporadaIds": [],
     "temporadaCats": "navidad",
