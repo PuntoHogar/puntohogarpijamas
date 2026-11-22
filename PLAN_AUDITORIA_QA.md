@@ -84,7 +84,7 @@ chrome --headless=new --disable-gpu --window-size=1400,1400 \
 1. **Despliegue vivo** (GitHub Pages tarda 1–2 minutos; caché de 10 min):
 
    ```bash
-   curl -s https://PuntoHogar.github.io/puntohogarpijamas/catalogo.js?v=3 | grep -c '{id:'
+   curl -s https://puntohogarpijamas.com/catalogo.js?v=3 | grep -c '{id:'
    ```
 
    Esperado: `88`.
@@ -92,9 +92,9 @@ chrome --headless=new --disable-gpu --window-size=1400,1400 \
 2. **Archivos y fotos clave** responden 200:
 
    ```bash
-   curl -s -o /dev/null -w "%{http_code}\n" https://PuntoHogar.github.io/puntohogarpijamas/
-   curl -s -o /dev/null -w "%{http_code}\n" https://PuntoHogar.github.io/puntohogarpijamas/img/p/91a4817c6ae271c6.webp
-   curl -s -o /dev/null -w "%{http_code}\n" https://PuntoHogar.github.io/puntohogarpijamas/qr_puntohogar.png
+   curl -s -o /dev/null -w "%{http_code}\n" https://puntohogarpijamas.com/
+   curl -s -o /dev/null -w "%{http_code}\n" https://puntohogarpijamas.com/img/p/91a4817c6ae271c6.webp
+   curl -s -o /dev/null -w "%{http_code}\n" https://puntohogarpijamas.com/qr_puntohogar.png
    ```
 
 3. **Auditoría de render en producción** con Chrome headless y CDP: navegar
@@ -122,9 +122,12 @@ chrome --headless=new --disable-gpu --window-size=1400,1400 \
    (base × margen, redondeo a mil) y referencias por `cid`/`sku`.
 4. Probar desde el celular (incluido iPhone si hay disponible).
 
-El workflow `qa-smoke.yml` corre L3 parcial (index y legal responden 200)
-todos los días a las 12:00 UTC y abre/cierra un issue con etiqueta
-`qa-smoke` si falla.
+El workflow `qa-smoke.yml` corre L3 parcial (index y legal responden 200,
+consultados en `https://puntohogarpijamas.com` con reintentos ante fallos
+transitorios) todos los días a las 12:00 UTC y abre/cierra un issue con
+etiqueta `qa-smoke` si falla. También se puede ejecutar a mano desde la
+pestaña Actions (así quedó verificado en verde el 22-11-2026, tras corregir
+el URL que apuntaba a github.io y recibía 301).
 
 ## Calendario sugerido
 

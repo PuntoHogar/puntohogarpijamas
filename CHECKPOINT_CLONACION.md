@@ -8,6 +8,13 @@ brief de **Punto Hogar Pijamas — by Fredy Henao**.
 > clonación se reemplazó por el **catálogo real de ropa del proyecto iki**:
 > 88 productos con 312 fotos reales. Es el estado actual del sitio.
 
+> **Actualización (22-11-2026):** dominio propio activo con `CNAME` (github.io
+> redirige 301 a https://puntohogarpijamas.com) y workflows de GitHub Actions
+> corregidos y verificados en verde: el QA smoke diario apunta al dominio
+> propio (antes consultaba github.io, recibía 301 y abría un issue de fallo
+> todos los días) y "Verificar catalogo" dejó el `JSON.parse` roto por
+> `node --check` + `scripts/validar_catalogo.py`.
+
 ## Cambios aplicados
 
 ### Identidad (brief de branding)
@@ -105,7 +112,10 @@ brief de **Punto Hogar Pijamas — by Fredy Henao**.
 4. **Limpieza opcional**: los 128 placeholders `pj*.webp` ya no se usan y
    quedan ~1.800 fotos de iki (juguetes/joyas) sin uso en `img/p/`. No afectan
    al sitio; se pueden borrar si se quiere aligerar el repo.
-5. **Workflow "Verificar catalogo"**: usa `JSON.parse` sobre un archivo JS;
-   si se va a ejecutar a mano, cambiar el parser. Es dispatch-only.
-6. **Dominio propio** (opcional): agregar CNAME y actualizar `canonical`,
-   `og:url`, `sitemap.xml` y las URLs de `catalogo.js`.
+5. **Workflow "Verificar catalogo"**: (hecho el 22-11-2026) el `JSON.parse`
+   roto se reemplazó por `node --check` + `scripts/validar_catalogo.py`; el
+   workflow quedó de solo lectura y dispatch-only.
+6. **Dominio propio** (parcial el 22-11-2026): `CNAME` agregado y github.io
+   redirige 301. Falta migrar `canonical`, `og:url`, `og:image`, el JSON-LD,
+   `sitemap.xml`, el `Sitemap:` de `robots.txt` y los URLs de respaldo del
+   compartir/QR, que aún apuntan a `PuntoHogar.github.io/puntohogarpijamas`.

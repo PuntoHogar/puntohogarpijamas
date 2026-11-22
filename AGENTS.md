@@ -1,8 +1,10 @@
 # AGENTS.md — Guía para trabajar en este repositorio
 
 Tienda al detal de **Punto Hogar Pijamas — by Fredy Henao**: un `index.html`
-monolítico publicado por GitHub Pages en
-**https://PuntoHogar.github.io/puntohogarpijamas/**, con checkout por WhatsApp
+monolítico publicado por GitHub Pages, servido en el dominio propio
+**https://puntohogarpijamas.com/** (el URL técnico
+`https://PuntoHogar.github.io/puntohogarpijamas/` redirige 301 ahí), con
+checkout por WhatsApp
 (+57 314 724 7260). Clonada de `github.com/ikib2c/iki` el 29-10-2026 y
 rebrandeada al brief de Punto Hogar Pijamas. Ver `README.md` para la
 arquitectura completa y `CHECKPOINT_CLONACION.md` para el historial.
@@ -57,7 +59,11 @@ node -e "const h=require('fs').readFileSync('index.html','utf8');const re=/<scri
 
 Auditoría de render y de producción: ver `PLAN_AUDITORIA_QA.md`.
 El workflow `qa-smoke.yml` corre todos los días a las 12:00 UTC contra el
-sitio publicado y abre/cierra un issue con la etiqueta `qa-smoke` si falla.
+sitio publicado (el dominio propio; el URL técnico de github.io responde 301
+y por eso no se usa), con reintentos ante fallos transitorios de red, y
+abre/cierra un issue con la etiqueta `qa-smoke` si falla. Ambos workflows
+(`qa-smoke.yml` y `sync-catalogos.yml`) también se pueden disparar a mano
+desde la pestaña Actions.
 
 ## Mapa del código (index.html)
 
@@ -85,8 +91,10 @@ sitio publicado y abre/cierra un issue con la etiqueta `qa-smoke` si falla.
   publica la clave.
 - **Analítica**: Pixel de Meta, GA4 y Clarity vienen vacíos de fábrica; se
   activan pegando el ID en el panel.
-- **Sincronización**: no existe. `sync-catalogos.yml` es dispatch-only y solo
-  verifica el catálogo; `scripts/validar_catalogo.py` es el validador local.
+- **Sincronización**: no existe. `sync-catalogos.yml` es dispatch-only y de
+  solo lectura: corre `node --check` sobre `catalogo.js` y
+  `data/configuracion.js` y luego `scripts/validar_catalogo.py` (el mismo
+  chequeo local de "Comandos de verificación").
 
 ## Gotchas conocidos
 
@@ -104,11 +112,12 @@ sitio publicado y abre/cierra un issue con la etiqueta `qa-smoke` si falla.
   `index.html`/`legal.html` o los navegadores seguirán viendo lo viejo.
 - **Sin service worker**: no hay PWA ni caché persistente; un "recargar" o
   cerrar y abrir la pestaña basta.
-- **El workflow "Verificar catalogo" usa `JSON.parse`** sobre `catalogo.js`,
-  pero el archivo es JavaScript con claves sin comillas: si se ejecuta a
-  mano fallará. Es dispatch-only, no rompe producción. Si se quiere usar en
-  serio, cambiar el parser a `eval`/`new Function` o usar
-  `scripts/validar_catalogo.py`.
+- **Migración de dominio a medias**: el `CNAME` ya está activo y github.io
+  redirige 301 al dominio propio, pero `canonical`, `og:url`, `og:image`,
+  el JSON-LD de `index.html`, el `Sitemap:` de `robots.txt`, `sitemap.xml` y
+  los URLs de respaldo del compartir/QR todavía apuntan a
+  `PuntoHogar.github.io/puntohogarpijamas`. El sitio funciona igual (el 301
+  resuelve), pero conviene migrar esas URLs para SEO limpio.
 - **Auditorías con Chrome headless**: si el puerto 9222 está ocupado por una
   instancia vieja, el script de auditoría puede reportar una página anterior.
   Verificar el dueño con `netstat -ano | findstr :9222` y matar ese árbol

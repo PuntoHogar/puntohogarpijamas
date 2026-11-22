@@ -1,6 +1,6 @@
 # Punto Hogar Pijamas — Descansa cómodo, siéntete en casa
 
-Tienda online de pijamas y ropa para dormir de **Punto Hogar Pijamas — by Fredy Henao** (Colombia): venta asistida por WhatsApp, publicada en **https://PuntoHogar.github.io/puntohogarpijamas/** desde el repositorio `github.com/PuntoHogar/puntohogarpijamas`. Sin frameworks, sin build y sin backend: HTML + CSS + JS en un solo archivo, catálogo estático y panel de administración que publica la configuración por la API de GitHub.
+Tienda online de pijamas y ropa para dormir de **Punto Hogar Pijamas — by Fredy Henao** (Colombia): venta asistida por WhatsApp, publicada en **https://puntohogarpijamas.com/** (dominio propio sobre GitHub Pages; el URL técnico `https://PuntoHogar.github.io/puntohogarpijamas/` redirige 301 ahí) desde el repositorio `github.com/PuntoHogar/puntohogarpijamas`. Sin frameworks, sin build y sin backend: HTML + CSS + JS en un solo archivo, catálogo estático y panel de administración que publica la configuración por la API de GitHub.
 
 El proyecto nació el **29-10-2026** como clon de `github.com/ikib2c/iki` con rebranding completo al brief de Punto Hogar Pijamas (ver `CHECKPOINT_CLONACION.md`). El catálogo actual es el **catálogo real de ropa del proyecto iki**: 88 productos con 312 fotos reales.
 
@@ -20,7 +20,7 @@ El proyecto nació el **29-10-2026** como clon de `github.com/ikib2c/iki` con re
 | `qr_puntohogar.png` | QR de la tienda que dibuja la tarjeta de compartir |
 | `Logo circular de pijamas Punto Hogar.png` | Logo maestro de la marca |
 | `sitemap.xml`, `robots.txt` | SEO: canonical y envío a Google Search Console |
-| `.github/workflows/` | QA smoke diario de producción (curl) y verificación manual del catálogo (dispatch-only) |
+| `.github/workflows/` | QA smoke diario de producción (curl contra el dominio propio; abre/cierra issue con etiqueta `qa-smoke` si falla) y verificación manual del catálogo (dispatch-only, solo lectura: `node --check` + validador Python) |
 | `scripts/validar_catalogo.py` | Validación básica de estructura, categorías y número de productos de `catalogo.js` |
 | `Brief_Branding_Punto_Hogar_Pijamas.md` | Manual de marca |
 | `README.md`, `AGENTS.md`, `CHECKPOINT_CLONACION.md`, `PLAN_AUDITORIA_QA.md` | Documentación del proyecto |
@@ -131,7 +131,7 @@ Acceso: enlace "Administración" del pie, `?admin` o **Ctrl+Shift+A**. Clave de 
    git push origin master
    ```
 2. GitHub Pages sirve desde la raíz del repo.
-3. URL: `https://PuntoHogar.github.io/puntohogarpijamas/` (GitHub Pages tarda 1–2 minutos en publicar).
+3. URL: `https://puntohogarpijamas.com/` (el URL técnico `https://PuntoHogar.github.io/puntohogarpijamas/` redirige 301; GitHub Pages tarda 1–2 minutos en publicar).
 4. Las imágenes y los archivos estáticos se cachean 10 minutos (`Cache-Control: max-age=600`); para forzar una recarga se usa un parámetro de versión (`?v=N`).
 
 ---
