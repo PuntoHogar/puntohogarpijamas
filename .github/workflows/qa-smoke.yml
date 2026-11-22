@@ -15,14 +15,20 @@ concurrency:
   group: qa-smoke
   cancel-in-progress: false
 
+env:
+  # Dominio propio en produccion (el URL de GitHub Pages redirige 301 aqui)
+  SITE_URL: https://puntohogarpijamas.com
+
 jobs:
   smoke:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Verificar tienda en vivo
+        # --retry: evita abrir issue por un fallo transitorio de red del runner
         run: |
-          curl -f -s -o /dev/null -w "%{http_code}" https://PuntoHogar.github.io/puntohogarpijamas/ | grep -q "^200$" && echo "OK: Tienda accesible" || (echo "ERROR: Tienda no accesible" && exit 1)
-          curl -f -s -o /dev/null -w "%{http_code}" https://PuntoHogar.github.io/puntohogarpijamas/legal.html | grep -q "^200$" && echo "OK: Legal accesible" || (echo "ERROR: Legal no accesible" && exit 1)
+          curl -fsS -m 30 --retry 3 --retry-delay 5 --retry-all-errors -o /dev/null "$SITE_URL/" && echo "OK: Tienda accesible"
+          curl -fsS -m 30 --retry 3 --retry-delay 5 --retry-all-errors -o /dev/null "$SITE_URL/legal.html" && echo "OK: Legal accesible"
 
       - name: Abrir o actualizar issue si fallo
         if: failure()
